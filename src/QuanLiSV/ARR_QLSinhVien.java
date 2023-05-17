@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class ARR_QLSinhVien {
     public static class ARR{
-        ArrayList<SinhVien> arr = new ArrayList<SinhVien>();
+        ArrayList<SinhVien> arr = new ArrayList<>();
         public void nhap(){
             SinhVien x;
             String temp;
@@ -35,6 +35,7 @@ public class ARR_QLSinhVien {
         ARR obj = new ARR();
         SinhVien x;
         do {
+            System.out.println("--------------------------------------------------------");
             System.out.println("Menu chương trình : ");
             System.out.println("1/. Nhập danh sách sinh viên : ");
             System.out.println("2/. Xem danh sách sinh viên : ");
@@ -44,16 +45,14 @@ public class ARR_QLSinhVien {
             System.out.println("6/. Đảo ngược ArrayList: ");
             System.out.println("7/. Xóa toàn bộ ArrayList: ");
             System.out.println("8/. Kết thúc chương trình : ");
-            System.out.print("Nhấn 1 số để chọn : ");
+            System.out.println("Nhấn 1 số để chọn : ");
+
+            System.out.println("--------------------------------------------------------");
             chon = sc.nextInt();
             switch (chon) {
-                case 1:
-                    obj.nhap();
-                    break;
-                case 2:
-                    obj.xuatArrayList();
-                    break;
-                case 3:
+                case 1 -> obj.nhap();
+                case 2 -> obj.xuatArrayList();
+                case 3 -> {
                     sc.nextLine();  //xử lý trôi lệnh
                     System.out.print("Nhập Tên cần tìm : ");
                     boolean tim = false;
@@ -65,10 +64,10 @@ public class ARR_QLSinhVien {
                             a.outPut();
                             break;
                         }
-                    if (tim == false)
+                    if (!tim)
                         System.out.println("! Không có sinh viên tên: " + name);
-                    break;
-                case 4:
+                }
+                case 4 -> {
                     System.out.println("Thêm sinh viên vào vị trí i:");
                     x = new SinhVien();
                     x.inPut();
@@ -79,8 +78,8 @@ public class ARR_QLSinhVien {
                     } while (i < 0 || i >= obj.arr.size());
                     obj.arr.add(i, x);
                     System.out.println("Thêm xong.");
-                    break;
-                case 5:
+                }
+                case 5 -> {
                     System.out.println("Xóa sinh viên tại vị trí j:");
                     do {
                         System.out.print("Nhập vị trí xóa : ");
@@ -88,17 +87,17 @@ public class ARR_QLSinhVien {
                     } while (j < 0 || j >= obj.arr.size());
                     obj.arr.remove(j);
                     System.out.println("Xóa xong.");
-                    break;
-                case 6:
+                }
+                case 6 -> {
                     System.out.println("6/. Đảo ngược ArrayList: ");
                     Collections.reverse(obj.arr);
                     System.out.println("Đảo ngược ArrayList xong.");
-                    break;
-                case 7:
+                }
+                case 7 -> {
                     System.out.println("Xóa toàn bộ ArrayList: ");
                     obj.arr.clear();
                     System.out.println("Xóa ArrayList  xong.");
-                    break;
+                }
             }
         } while (chon <= 7);
         System.out.println("Kết thúc chương trình./.");
